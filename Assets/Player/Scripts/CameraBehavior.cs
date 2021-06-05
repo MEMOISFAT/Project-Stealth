@@ -30,8 +30,6 @@ public class CameraBehavior : MonoBehaviour
     void RotateAroundPlayer()
     {
 
-
-
         /*float hAxis = Input.GetAxisRaw("Horizontal");
         float vAxis = Input.GetAxisRaw("Vertical");
 
