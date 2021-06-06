@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform cam;
 
     public float pSpeed = 10f;
+    public float maxSpeed = 5;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
     Vector3 direction;
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
+        float speed = Mathf.Abs(rb.velocity.magnitude);
         float hAxis = Input.GetAxisRaw("Horizontal");
         float vAxis = Input.GetAxisRaw("Vertical");
 
@@ -52,6 +54,12 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rb.AddForce(moveDir.normalized * pSpeed * Time.deltaTime, ForceMode.Impulse);
+            Debug.Log(rb.velocity);
+            
+            if (speed > maxSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * maxSpeed;
+            }
         }
     }
 
@@ -64,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(new Vector3(0, jumpPower, 0) * 50, ForceMode.Acceleration);
             isGrounded = false;
         }
+
     }
 
 }
