@@ -6,7 +6,7 @@ public class CameraBehavior : MonoBehaviour
 {
     public Transform cam;
     public Transform player;
-    public Transform pivot;
+    //public Transform pivot;
     public Vector3 offset;
     Vector3 direction;
     public float turnSmoothTime = 0.1f;
