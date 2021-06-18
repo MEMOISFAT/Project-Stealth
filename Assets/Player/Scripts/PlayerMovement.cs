@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rb.AddForce(moveDir.normalized * pSpeed * Time.deltaTime, ForceMode.Impulse);
-            Debug.Log(rb.velocity);
+            //Debug.Log(rb.velocity);
             
             if (speed > maxSpeed)
             {
